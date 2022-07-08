@@ -10,7 +10,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Override
     public Calculator calculateQuery(String query) {
         Calculator calculator = new Calculator();
-        calculator.setError("Hello world");
+        calculator.setError(query);
         calculator.setResult(23);
 
         return calculator;
