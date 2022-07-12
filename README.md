@@ -1,6 +1,6 @@
-# futurice-challenge
+# Futurice challenge
 
-This project is a code challenge for Futurice. It's open to everyone who wants to play with it.
+This project is a code challenge for an open position from Futurice. It's open to everyone who wants to play with it.
 
 # About the project
 
