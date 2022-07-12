@@ -34,7 +34,7 @@ public class RegexCalculatorController {
             .build();
     }
 
-    @GetMapping("/hello") {
+    @GetMapping("/hello")
     public ResponseEntity<String> calculateEncodedQuery() {
         return ResponseEntity.ok("Hello World!");
     }
