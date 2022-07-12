@@ -53,4 +53,9 @@ public class CalculatorController {
         return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
     }
 
+    @GetMapping("/sayhello")
+    public ResponseEntity<String> sayHello() {
+        return ResponseEntity.ok("Hello World!");
+    }
+
 }
