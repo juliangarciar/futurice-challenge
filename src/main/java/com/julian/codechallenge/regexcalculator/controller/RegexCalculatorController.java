@@ -33,6 +33,11 @@ public class RegexCalculatorController {
             .addLimit(limit)
             .build();
     }
+
+    @GetMapping("/hello") {
+    public ResponseEntity<String> calculateEncodedQuery() {
+        return ResponseEntity.ok("Hello World!");
+    }
     
     @GetMapping("/calculus")
     public ResponseEntity<Response> calculateEncodedQuery(@RequestParam("query") byte[] encodedQuery) {
