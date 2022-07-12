@@ -10,13 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.julian.codechallenge.regexcalculator.service.RegexCalculatorService;
 
 @SpringBootTest
-public class RegexCalculatorTests {
+class RegexCalculatorTests {
     
     @Autowired
 	private RegexCalculatorService calculatorService;
 
 	@Test
-	public void failTests() {
+	void failTests() {
 		byte[] encodedBytes = generateBytes("2 + 2.5 + (5.5");
 		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedBytes).getError());
 
@@ -40,7 +40,7 @@ public class RegexCalculatorTests {
 	}
 
 	@Test
-	public void successTests() {
+	void successTests() {
 		byte[] encodedBytes = generateBytes("(2.5 * 2) + 10 + (2 * (5 + 1) + (-2))");
 		Assertions.assertEquals(25d, calculatorService.calculateEncodedQuery(encodedBytes).getResult());
 
