@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.julian.codechallenge.CodeChallengeApplication
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/codechallenge-1.0.0-SNAPSHOT.jar
