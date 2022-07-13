@@ -27,7 +27,17 @@ The project is a REST API, with two end-points:
     · */ The method can also operate product and division operations.
     · The method also accounts for minus signed values, like 1--4 (this will be traduced as 1 + 4).
     · The method also supports random spaces between symbols and numbers, like 10 +4 * 3*( 1 + 2).
+<<<<<<< HEAD
 
+=======
+    
+# Testing online
+
+  You can test the API on the following URL:
+  
+    https://decoderquerycalculator.herokuapp.com/calculus?query=MiAqICgyMy8oMyozKSktIDIzICogKDIqMyk
+    
+>>>>>>> main
 # Building and running the project
 
   The project has been built using Java 11 and Maven 3.6.2.
