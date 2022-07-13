@@ -22,7 +22,7 @@ class CalculatorTests {
 		encodedQuery = UtilsBase64.encodeQuery("2 + 2.5 + (5.5.3");
 		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
 		
-		encodedQuery = UtilsBase64.encodeQuery("+ (2 * 3.2)");
+		encodedQuery = UtilsBase64.encodeQuery("+- (2 * 3.2)");
 		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
 
 		encodedQuery = UtilsBase64.encodeQuery("(2 * 3 +)");
@@ -35,6 +35,12 @@ class CalculatorTests {
 		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
 
 		encodedQuery = UtilsBase64.encodeQuery("2 * (4 + 5))");
+		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
+
+		encodedQuery = UtilsBase64.encodeQuery("2 ((4 + 5))");
+		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
+
+		encodedQuery = UtilsBase64.encodeQuery("2 + (4  5)");
 		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
 	}
 
@@ -59,6 +65,24 @@ class CalculatorTests {
 		Assertions.assertEquals(20d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
 		
 		encodedQuery = UtilsBase64.encodeQuery("(8 - 1 + 3) * 6 - ((3 + 7) * 2)");
+		Assertions.assertEquals(40d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
+
+		encodedQuery = UtilsBase64.encodeQuery("-8 -(3-4)");
+		Assertions.assertEquals(-7d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
+
+		encodedQuery = UtilsBase64.encodeQuery("- 8 -( -3*-4 )");
+		Assertions.assertEquals(-20d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
+		
+		encodedQuery = UtilsBase64.encodeQuery(" -8 - (-3 * -4) ");
+		Assertions.assertEquals(-20d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
+
+		encodedQuery = UtilsBase64.encodeQuery("+1-(-4)");
+		Assertions.assertEquals(5d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
+
+		encodedQuery = UtilsBase64.encodeQuery("(-8 )*(-3 * -4) ");
+		Assertions.assertEquals(-96d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
+
+		encodedQuery = UtilsBase64.encodeQuery("+3-2+4+(-3*(3*-3))-2+5*4/2");
 		Assertions.assertEquals(40d, calculatorService.calculateEncodedQuery(encodedQuery).getResult());
 	}
 	
