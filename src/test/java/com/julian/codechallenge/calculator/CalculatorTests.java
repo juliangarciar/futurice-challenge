@@ -17,7 +17,7 @@ class CalculatorTests {
 	@Test
 	void failTests() {
 		String encodedQuery = UtilsBase64.encodeQuery("2 + 2.5 + (5.5");
-		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
+		Assertions.assertEquals(false, calculatorService.calculateEncodedQuery(encodedQuery).getError());
 
 		encodedQuery = UtilsBase64.encodeQuery("2 + 2.5 + (5.5.3");
 		Assertions.assertEquals(true, calculatorService.calculateEncodedQuery(encodedQuery).getError());
