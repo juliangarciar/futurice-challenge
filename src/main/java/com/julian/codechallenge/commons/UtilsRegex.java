@@ -116,4 +116,8 @@ public class UtilsRegex {
 		return addSign ? "+" + stack.toString() : stack.toString();
 	}
 
+	private static String hello() {
+		return "hello world";
+	}
+
 }
